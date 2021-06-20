@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Click buttons!</h1>
+
+    <p>This button has been clicked {{request.session.counter1}} times!</p>
+    <form action='/click_button' method='POST'>
+        {% csrf_token %}
+        <input type='hidden' name='choice' value='1'>
+        <input type='submit' value='Click Me!'>
+    </form>
+
+    <p>This button has been clicked {{request.session.counter2}} times!</p>
+    <form action='/click_button' method='POST'>
+        {% csrf_token %}
+        <input type='hidden' name='choice' value='2'>
+        <input type='submit' value='Click Me!'>
+    </form>
+
+    <p>This button has been clicked {{request.session.counter3}} times!</p>
+    <form action='/click_button' method='POST'>
+        {% csrf_token %}
+        <input type='hidden' name='choice' value='3'>
+        <input type='submit' value='Click Me!'>
+    </form>
+
+    <a href='/reset'>reset counters</a>
+</body>
+</html>
